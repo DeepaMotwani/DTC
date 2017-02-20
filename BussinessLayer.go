@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"log"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
@@ -90,7 +91,16 @@ func InsertContractDetails(stub shim.ChaincodeStubInterface, args []string) ([]b
 	}
 
 	//get data from middle layer
+	log.Print("************************** 1) *********************************************")
 	json.Unmarshal([]byte(args[0]), &ContractDetails)
+	log.Print("************************** 2) *********************************************")
+	jsonAsBytes, _ := json.Marshal(ContractDetails)
+	log.Print("************************** 3) *********************************************")
+	log.Print(jsonAsBytes)
+	log.Print("************************** 4) *********************************************")
+	log.Print(ContractDetails.ContractId)
+	log.Print(ContractDetails.OrderId)
+	log.Print("************************** 5) *********************************************")
 	/*json.Unmarshal([]byte(args[1]), &OrderDetails)
 	json.Unmarshal([]byte(args[2]), &SellerDetails)
 	json.Unmarshal([]byte(args[3]), &BuyerDetails)
