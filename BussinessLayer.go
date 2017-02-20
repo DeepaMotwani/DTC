@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"log"
+	//"log"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
