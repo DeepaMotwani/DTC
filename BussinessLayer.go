@@ -78,6 +78,7 @@ func CreateDatabase(stub shim.ChaincodeStubInterface, args []string) ([]byte, er
 }
 
 func InsertContractDetails(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	var logger = shim.NewLogger("DTC_Chaincode")
 	var ContractDetails Contract
 	/*var OrderDetails Order
 	var SellerDetails Seller
@@ -91,16 +92,16 @@ func InsertContractDetails(stub shim.ChaincodeStubInterface, args []string) ([]b
 	}
 
 	//get data from middle layer
-	log.Print("************************** 1) *********************************************")
+	logger.Info("************************** 1) *********************************************")
 	json.Unmarshal([]byte(args[0]), &ContractDetails)
-	log.Print("************************** 2) *********************************************")
+	logger.Info("************************** 2) *********************************************")
 	jsonAsBytes, _ := json.Marshal(ContractDetails)
-	log.Print("************************** 3) *********************************************")
-	log.Print(jsonAsBytes)
-	log.Print("************************** 4) *********************************************")
-	log.Print(ContractDetails.ContractId)
-	log.Print(ContractDetails.OrderId)
-	log.Print("************************** 5) *********************************************")
+	logger.Info("************************** 3) *********************************************")
+	logger.Info(jsonAsBytes)
+	logger.Info("************************** 4) *********************************************")
+	logger.Info(ContractDetails.ContractId)
+	logger.Info(ContractDetails.OrderId)
+	logger.Info("************************** 5) *********************************************")
 	/*json.Unmarshal([]byte(args[1]), &OrderDetails)
 	json.Unmarshal([]byte(args[2]), &SellerDetails)
 	json.Unmarshal([]byte(args[3]), &BuyerDetails)
